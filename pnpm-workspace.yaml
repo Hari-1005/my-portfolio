@@ -1,0 +1,3 @@
+# Build scripts are blocked by default in pnpm 10; list explicit decisions here.
+ignoredBuiltDependencies:
+  - unrs-resolver

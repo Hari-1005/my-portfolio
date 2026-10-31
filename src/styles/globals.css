@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/*
+ * Neutral baseline design tokens. The designer (Pixel) owns these and will
+ * replace them; components consume tokens only, never raw colours.
+ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: oklch(0.99 0 0);
+  --color-fg: oklch(0.21 0 0);
+  --color-muted: oklch(0.45 0 0);
+  --color-border: oklch(0.9 0 0);
+  --color-surface: oklch(0.97 0 0);
+  --color-accent: oklch(0.45 0.12 255);
+  --color-accent-fg: oklch(0.99 0 0);
+
+  --radius-card: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: oklch(0.16 0 0);
+    --color-fg: oklch(0.95 0 0);
+    --color-muted: oklch(0.72 0 0);
+    --color-border: oklch(0.3 0 0);
+    --color-surface: oklch(0.2 0 0);
+    --color-accent: oklch(0.75 0.12 255);
+    --color-accent-fg: oklch(0.16 0 0);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

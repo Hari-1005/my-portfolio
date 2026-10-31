@@ -1,0 +1,1 @@
+This non-MDX file must be ignored by the loader.

@@ -1,0 +1,37 @@
+name: User story
+description: A backlog item written as a user story with acceptance criteria.
+title: "feat: "
+labels: ["type:story"]
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      value: |
+        As a <type of user>,
+        I want <goal>,
+        so that <benefit>.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Testable conditions, ideally Given / When / Then.
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (MoSCoW)
+      options:
+        - Must
+        - Should
+        - Could
+        - Won't
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, design links or dependencies

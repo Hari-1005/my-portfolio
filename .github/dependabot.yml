@@ -1,0 +1,48 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Asia/Kolkata
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+    labels: ["type:chore", "area:infra"]
+    groups:
+      next-react:
+        patterns:
+          ["next", "eslint-config-next", "react", "react-dom", "@types/react", "@types/react-dom"]
+      testing:
+        patterns:
+          [
+            "vitest",
+            "@vitest/*",
+            "@vitejs/*",
+            "vite",
+            "jsdom",
+            "@testing-library/*",
+            "@playwright/test",
+            "@axe-core/*",
+          ]
+      lint-format:
+        patterns: ["eslint", "eslint-*", "prettier", "prettier-*"]
+      tailwind:
+        patterns: ["tailwindcss", "@tailwindcss/*"]
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: github-actions
+    directories: ["/", "/.github/actions/*"]
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Asia/Kolkata
+    commit-message:
+      prefix: "ci"
+    labels: ["type:chore", "area:ci"]
+    groups:
+      actions:
+        patterns: ["*"]
