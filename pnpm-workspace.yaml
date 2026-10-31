@@ -1,3 +1,7 @@
 # Build scripts are blocked by default in pnpm 10; list explicit decisions here.
 ignoredBuiltDependencies:
   - unrs-resolver
+
+# Supply-chain guard: only install versions published at least 24 hours ago.
+# Set explicitly so local installs, CI and Dependabot all apply the same window.
+minimumReleaseAge: 1440
