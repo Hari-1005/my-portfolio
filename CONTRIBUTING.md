@@ -12,7 +12,7 @@
    pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e
    ```
 
-4. Open a pull request using the template. CI must be green and one approval is required.
+4. Open a pull request using the template. CI must be green. Branch protection requires passing checks but no approving review while Kasani is the sole maintainer; raise this when more reviewers join.
 5. PRs are **squash-merged**; the PR title becomes the commit message, so it must follow
    Conventional Commits.
 6. Add user-facing changes to `CHANGELOG.md` under **Unreleased**.
